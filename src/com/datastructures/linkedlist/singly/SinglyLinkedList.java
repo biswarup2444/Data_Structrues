@@ -149,6 +149,15 @@ public class SinglyLinkedList {
       head=previous;
    }
 
+   public Node searchAnElementRercusion(Node head,int x)
+   {
+
+      if(head.data==x)
+         return head;
+      else
+         return searchAnElementRercusion(head.next,x);
+   }
+
    public void sort()
    {
 

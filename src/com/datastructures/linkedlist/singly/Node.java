@@ -2,6 +2,14 @@ package com.datastructures.linkedlist.singly;
 
 public class Node {
 
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
     int data;
     Node next;
 
@@ -17,5 +25,7 @@ public class Node {
         this.data=data;
         this.next=next;
     }
+
+
 }
 

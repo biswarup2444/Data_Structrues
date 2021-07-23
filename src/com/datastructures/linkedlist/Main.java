@@ -12,12 +12,14 @@ public class Main {
         sl.addAtTail(new Node(50));
         sl.addAtTail(new Node(60));
         sl.addInNthPosition(new Node(70),1);
-        System.out.println("The size of the linked list ->" + sl.size());
-        sl.travelFromHead();
+        //System.out.println("The size of the linked list ->" + sl.size());
+        //sl.travelFromHead();
         //sl.deleteNodeFromNthPosition(2);
-        sl.reverseLinkedList();
-        sl.deleteNodeFromValue(10);
-        System.out.println("The size of the linked list ->" + sl.size());
+        //sl.reverseLinkedList();
+        //sl.deleteNodeFromValue(10);
+        Node n=new Node(10,new Node(20,new Node(30,new Node(40))));
+        System.out.println(sl.searchAnElementRercusion(n,20).getData());
+        //System.out.println("The size of the linked list ->" + sl.size());
         sl.travelFromHead();
     }
 }
