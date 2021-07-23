@@ -3,7 +3,6 @@ import com.datastructures.linkedlist.singly.*;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
         SinglyLinkedList sl=new SinglyLinkedList();
 
         sl.addAtHead(new Node(30));
@@ -15,7 +14,9 @@ public class Main {
         sl.addInNthPosition(new Node(70),1);
         System.out.println("The size of the linked list ->" + sl.size());
         sl.travelFromHead();
-        sl.deleteNodeFromNthPosition(2);
+        //sl.deleteNodeFromNthPosition(2);
+        sl.reverseLinkedList();
+        sl.deleteNodeFromValue(10);
         System.out.println("The size of the linked list ->" + sl.size());
         sl.travelFromHead();
     }

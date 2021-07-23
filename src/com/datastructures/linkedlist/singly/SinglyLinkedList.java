@@ -2,7 +2,7 @@ package com.datastructures.linkedlist.singly;
 
 public class SinglyLinkedList {
 
-   Node head;
+   private Node head;
 
    public void addAtHead(Node node)
    {
@@ -102,7 +102,7 @@ public class SinglyLinkedList {
       {
          if(n-1==counter)
          {
-            travellingNode=travellingNode.next.next;
+            travellingNode.next=travellingNode.next.next;
             break;
          }
          counter++;
@@ -110,37 +110,48 @@ public class SinglyLinkedList {
       }
    }
 
-   public void sort()
+   public void deleteNodeFromValue(int n)
    {
-      Node dummyHead=head;
-      Node sortedHead=null;
-      while(dummyHead!=null)
+      Node travellingNode=this.head;
+      Node prev=null;
+      while(travellingNode!=null)
       {
-         Node travellingNode=dummyHead;
-         int val=travellingNode.data;
-         while(travellingNode!=null)
+         if(travellingNode.data==n )
          {
-            if(travellingNode.data<val){
-               val=dummyHead.data;
-
-            }
-            travellingNode=travellingNode.next;
-         }
-         Node n=new Node(val);
-         if(sortedHead==null)
-         {
-            sortedHead=n;
-         }
-         else {
-            Node travellingSortedNode = sortedHead;
-            while (travellingSortedNode.next != null)
+            if(prev!=null)
             {
-
+               prev.next=travellingNode.next;
             }
-            travellingSortedNode.next=n;
+            else
+            {
+               head=travellingNode.next;
+               return;
+            }
          }
+         prev=travellingNode;
+         travellingNode=travellingNode.next;
+      }
+   }
+
+   public void reverseLinkedList()
+   {
+      Node travellingNode=head;
+      Node previous = null;
+      Node next=null;
+      while(travellingNode!=null)
+      {
+         next= travellingNode.next;
+         travellingNode.next=previous;
+         previous=travellingNode;
+         travellingNode=next;
 
       }
+      head=previous;
+   }
+
+   public void sort()
+   {
+
    }
 
 }
