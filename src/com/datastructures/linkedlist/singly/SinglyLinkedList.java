@@ -73,6 +73,14 @@ public class SinglyLinkedList {
       }
    }
 
+   public void travelFromNode(Node n) {
+      while(n != null)
+      {
+         System.out.println("data ->\t"+n.data);
+         n=n.next;
+      }
+   }
+
    public void deleteNodeFromHead()
    {
       Node travelNode=head;
@@ -91,6 +99,19 @@ public class SinglyLinkedList {
          counter++;
       }
       travelNode.next=null;
+   }
+
+   public void deleteTail(Node n)
+   {
+      while(n!=null) {
+         if (n.next.next == null)
+         {
+            n.next=null;
+            return;
+         }
+         n=n.next;
+      }
+
    }
 
    public void deleteNodeFromNthPosition(int n)
@@ -160,7 +181,7 @@ public class SinglyLinkedList {
 
    public void sort()
    {
-
+      
    }
 
 }
