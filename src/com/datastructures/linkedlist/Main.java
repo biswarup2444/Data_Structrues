@@ -19,6 +19,8 @@ public class Main {
         //sl.reverseLinkedList();
         //sl.deleteNodeFromValue(10);
         Node n=new Node(10,new Node(20,new Node(30,new Node(40))));
+        sl.travelFromNode(sl.SwapNodesBasedOnValue(n,10,40));
+
         //sl.deleteTail(n);
         //l1.changeLinkedListOrder(n);
         //l1.printAll(n);

@@ -178,7 +178,44 @@ public class SinglyLinkedList {
       else
          return searchAnElementRercusion(head.next,x);
    }
+   public Node SwapNodesBasedOnValue(Node n,int x,int y)
+   {
+      //Node h=n;
+      if(x==y)
+         return n;
+      Node prevX=null;
+      Node currX=n;
+      while(currX!=null && currX.data!=x)
+      {
+         prevX=currX;
+         currX= currX.next;
+      }
 
+      Node prevY=null;
+      Node currY=n;
+      while(currY!=null &&  currY.data!=y)
+      {
+         prevY=currY;
+         currY=currY.next;
+      }
+      if(currX==null || currY==null)
+         return n;
+      if(prevX==null)
+         n=currY;
+      else
+         prevX.next=currY;
+      if(prevY==null)
+         n=currX;
+      else
+         prevY.next=currX;
+
+      Node temp=currX.next;
+      currX.next=currY.next;
+      currY.next=temp;
+
+
+      return  n;
+   }
    public void sort()
    {
       
