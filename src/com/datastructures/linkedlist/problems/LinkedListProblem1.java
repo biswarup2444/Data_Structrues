@@ -1,5 +1,7 @@
 package com.datastructures.linkedlist.problems;
 
+import com.datastructures.linkedlist.singly.Node;
+
 public class LinkedListProblem1 {
     public void changeLinkedListOrder(Node head)
     {
@@ -56,29 +58,3 @@ public class LinkedListProblem1 {
     }
 }
 
-class Node
-{
-    int data;
-    Node next;
-
-    Node(int data)
-    {
-        this.data=data;
-        next=null;
-    }
-
-    Node(int data,Node next)
-    {
-        this.data=data;
-        this.next=next;
-    }
-
-    public static void main(String[] args) {
-        Node n=new Node(11,new Node(22,new Node(33,new Node(44,new Node(55)))));
-        //sl.deleteTail(n);
-        LinkedListProblem1 l1=new LinkedListProblem1();
-        l1.changeLinkedListOrder(n);
-        l1.printAll(n);
-
-    }
-}
