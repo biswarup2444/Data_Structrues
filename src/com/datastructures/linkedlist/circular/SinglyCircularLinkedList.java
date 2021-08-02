@@ -3,25 +3,49 @@ package com.datastructures.linkedlist.circular;
 import com.datastructures.linkedlist.singly.Node;
 
 public class SinglyCircularLinkedList {
-    public Node head;
 
-    public void MakeCircularLinkedList(Node n) {
+    public Node head;
+    public Node MakeCircularLinkedList(Node n) {
         Node tr = n;
         while (tr.next != null) {
             //System.out.println(tr.data);
             tr = tr.next;
         }
         tr.next = n;
-        head=n;
-    }
-    public void addAtHead(Node ne)
-    {
-       if(head!=null)
-       {
-           ne.next=head;
+        return n;
 
-       }
-       this.head=ne;
+    }
+    public void addAtHead(Node ne) {
+        Node tr=head;
+        do {
+            tr=tr.next;
+        }
+        while(tr.next!=head);
+
+        if (head != null) {
+            ne.next = this.head;
+
+        }
+        this.head=ne;
+        tr.next=head;
+
+    }
+    public void addAtHeadWithData(int d)
+    {
+        Node ne=new Node(d);
+        Node tr=head;
+        do {
+            tr=tr.next;
+        }
+        while(tr.next!=head);
+
+        if (head != null) {
+            ne.next = this.head;
+
+        }
+        this.head=ne;
+        tr.next=head;
+
 
     }
     public void insertAtNth(int pos,Node ne)
@@ -31,39 +55,33 @@ public class SinglyCircularLinkedList {
         Node prev=null;
         if(pos==1)
         {
-            this.addAtHead(ne);
-            return;
+            addAtHead(ne);
         }
         do{
-            //System.out.println(counter);
-            if(counter==pos && prev!=null)
+            if(counter==pos)
             {
-
                 prev.next=ne;
                 ne.next=tr;
-                return;
-
-
+                break;
             }
             counter++;
             prev=tr;
             tr=tr.next;
-
-
         }
         while(tr!=head);
+
     }
 
 
     public void PrintList()
     {
-        Node tr=head;
+        Node tr=this.head;
 
         do {
             System.out.println(tr.data);
             tr = tr.next;
 
-        } while (tr != head);
+        } while (tr != this.head);
     }
 
 
