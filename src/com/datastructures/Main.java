@@ -2,21 +2,23 @@ package com.datastructures;
 
 import com.datastructures.linkedlist.doubly.DoublyLinkedList;
 import com.datastructures.linkedlist.doubly.DoublyNode;
+import com.datastructures.queue.Queue;
+import com.datastructures.queue.QueueLinkedList;
 import com.datastructures.stack.Stack;
 
 public class Main {
 
     public static void main(String[] args) {
-        Stack sc=new Stack();
-        System.out.println("Stack Empty?\t"+sc.isEmpty());
-        sc.push(1);
-        sc.push(3);
-        sc.push(5);
-        sc.push(7);
-        sc.push(9);
-        System.out.println(sc.isEmpty());
-        sc.makeEmpty();
-        System.out.println(sc.isEmpty());
+        QueueLinkedList q=new QueueLinkedList();
+        q.enqeue(1);
+        q.enqeue(2);
+        q.enqeue(3);
+        q.enqeue(4);
+        q.enqeue(5);
+
+        System.out.println("dq->"+q.head.data);
+
+
 
 
     }
