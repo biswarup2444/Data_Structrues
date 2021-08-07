@@ -1,22 +1,15 @@
 package com.datastructures;
-
-import com.datastructures.linkedlist.doubly.DoublyLinkedList;
-import com.datastructures.linkedlist.doubly.DoublyNode;
-import com.datastructures.queue.Queue;
-import com.datastructures.queue.QueueLinkedList;
-import com.datastructures.stack.Stack;
+import com.datastructures.linkedlist.problems.LinkedListProblem1;
+import com.datastructures.linkedlist.singly.Node;
 
 public class Main {
 
     public static void main(String[] args) {
-        QueueLinkedList q=new QueueLinkedList();
-        q.enqeue(1);
-        q.enqeue(2);
-        q.enqeue(3);
-        q.enqeue(4);
-        q.enqeue(5);
+        LinkedListProblem1 l1=new LinkedListProblem1();
+        Node n=new Node(5,new Node(3,new Node(7,new Node(7))));
+        n=l1.mergeSortGfg(n);
+        l1.printAll(n);
 
-        System.out.println("dq->"+q.head.data);
 
 
 
