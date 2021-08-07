@@ -1,5 +1,6 @@
 package com.datastructures.linkedlist.problems;
 
+import com.datastructures.linkedlist.doubly.DoublyNode;
 import com.datastructures.linkedlist.singly.Node;
 
 public class LinkedListProblem1 {
@@ -84,6 +85,13 @@ public class LinkedListProblem1 {
 
     }
 
+    public void printAll(DoublyNode n) {
+        while (n != null) {
+            System.out.println(n.data);
+            n = n.next;
+        }
+
+    }
     public void merge(int[] l, int[] r, int[] A) {
         int i = 0;
         int j = 0;
@@ -127,8 +135,7 @@ public class LinkedListProblem1 {
         merge(l, r, A);
     }
 
-    public Node mergeSortLinkedList(Node A)
-    {
+    public Node mergeSortLinkedList(Node A) {
         if (A.next == null )
             return A;
         int size=this.size(A);
@@ -192,7 +199,6 @@ public class LinkedListProblem1 {
             A.next=r;
         return head;
     }
-
     public Node mergeSortGfg(Node n)
     {
         if(n==null || n.next==null)
@@ -242,6 +248,69 @@ public class LinkedListProblem1 {
         return  slow;
     }
 
+
+    public DoublyNode getMiddle(DoublyNode n)
+    {
+        DoublyNode slow=n;
+        DoublyNode fast=n;
+        while(fast!=null)
+        {
+            fast=fast.next;
+            if(fast==null)
+            {
+                return  slow;
+            }
+            fast=fast.next;
+            slow=slow.next;
+        }
+        return slow;
+    }
+
+    public DoublyNode mergeSortDoublyLinkedList(DoublyNode n)
+    {
+        if(n==null || n.next==null)
+            return n;
+        DoublyNode l;
+        DoublyNode r;
+        l=n;
+        DoublyNode middle=getMiddle(n);
+        r=middle.next;
+        System.out.println(r.data);
+
+        middle.next=null;
+        l=mergeSortDoublyLinkedList(l);
+        r=mergeSortDoublyLinkedList(r);
+        return  merger(l,r);
+
+    }
+
+    public DoublyNode merger(DoublyNode l,DoublyNode r)
+    {
+        if(l==null)
+            return r;
+        if(r==null)
+            return l;
+        DoublyNode res;
+        if(l.data<r.data)
+        {
+            res=l;
+            DoublyNode ret=merger(l.next,r);
+            ret.previous=res;
+            res.next=ret;
+            res.previous=null;
+
+        }
+        else
+        {
+            res=r;
+            DoublyNode ret=merger(l,r.next);
+            ret.previous=res;
+            res.next=ret;
+            res.previous=null;
+        }
+        return res;
+    }
+    
 
 }
 

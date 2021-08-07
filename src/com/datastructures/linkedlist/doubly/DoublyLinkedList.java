@@ -4,7 +4,7 @@ import com.datastructures.linkedlist.singly.Node;
 
 public class DoublyLinkedList {
 
-    DoublyNode head;
+    public DoublyNode head;
     public void addAtHead(DoublyNode node)
     {
         if(head!=null)

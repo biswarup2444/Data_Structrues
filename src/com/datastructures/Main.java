@@ -1,4 +1,6 @@
 package com.datastructures;
+import com.datastructures.linkedlist.doubly.DoublyLinkedList;
+import com.datastructures.linkedlist.doubly.DoublyNode;
 import com.datastructures.linkedlist.problems.LinkedListProblem1;
 import com.datastructures.linkedlist.singly.Node;
 
@@ -6,10 +8,15 @@ public class Main {
 
     public static void main(String[] args) {
         LinkedListProblem1 l1=new LinkedListProblem1();
-        Node n=new Node(5,new Node(3,new Node(7,new Node(7))));
-        n=l1.mergeSortGfg(n);
-        l1.printAll(n);
+        DoublyLinkedList dl=new DoublyLinkedList();
+        dl.addAtTail(new DoublyNode(11));
+        dl.addAtTail(new DoublyNode(10));
+        dl.addAtTail(new DoublyNode(8));
 
+        DoublyNode n=dl.head;
+        System.out.println(n.data);
+        n=l1.mergeSortDoublyLinkedList(n);
+        l1.printAll(n);
 
 
 
