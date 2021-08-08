@@ -253,34 +253,25 @@ public class LinkedListProblem1 {
     {
         DoublyNode slow=n;
         DoublyNode fast=n;
-        while(fast!=null)
-        {
-            fast=fast.next;
-            if(fast==null)
-            {
-                return  slow;
-            }
-            fast=fast.next;
-            slow=slow.next;
+        while (fast.next != null && fast.next.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
         }
-        return slow;
+        DoublyNode temp = slow.next;
+        slow.next = null;
+        return temp;
     }
 
     public DoublyNode mergeSortDoublyLinkedList(DoublyNode n)
     {
         if(n==null || n.next==null)
             return n;
-        DoublyNode l;
-        DoublyNode r;
-        l=n;
-        DoublyNode middle=getMiddle(n);
-        r=middle.next;
-        System.out.println(r.data);
 
-        middle.next=null;
-        l=mergeSortDoublyLinkedList(l);
+        DoublyNode r=getMiddle(n);
+
+        n=mergeSortDoublyLinkedList(n);
         r=mergeSortDoublyLinkedList(r);
-        return  merger(l,r);
+        return  merger(n,r);
 
     }
 
@@ -293,20 +284,17 @@ public class LinkedListProblem1 {
         DoublyNode res;
         if(l.data<r.data)
         {
+            l.next=merger(l.next,r);
+            l.next.previous=l;
+            l.previous=null;
             res=l;
-            DoublyNode ret=merger(l.next,r);
-            ret.previous=res;
-            res.next=ret;
-            res.previous=null;
-
         }
         else
         {
+            r.next=merger(l,r.next);
+            r.next.previous=r;
+            r.previous=null;
             res=r;
-            DoublyNode ret=merger(l,r.next);
-            ret.previous=res;
-            res.next=ret;
-            res.previous=null;
         }
         return res;
     }

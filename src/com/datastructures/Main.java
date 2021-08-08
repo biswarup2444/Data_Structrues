@@ -14,7 +14,7 @@ public class Main {
         dl.addAtTail(new DoublyNode(8));
 
         DoublyNode n=dl.head;
-        System.out.println(n.data);
+
         n=l1.mergeSortDoublyLinkedList(n);
         l1.printAll(n);
 
