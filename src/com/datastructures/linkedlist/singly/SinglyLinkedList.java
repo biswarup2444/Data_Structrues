@@ -3,9 +3,6 @@ package com.datastructures.linkedlist.singly;
 public class SinglyLinkedList {
 
    private Node head;
-
-
-
    public void addAtHead(Node node)
    {
       if(head!=null)
@@ -218,9 +215,8 @@ public class SinglyLinkedList {
 
       return  n;
    }
-   public void sort()
-   {
-      
-   }
+
+
+
 
 }
