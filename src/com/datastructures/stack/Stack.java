@@ -42,15 +42,15 @@ public class Stack {
         return  r;
     }
 
-    public void peek()
+    public int peek()
     {
-        int r;
+
         if(isEmpty())
         {
-            System.out.println("Empty");
-            return ;
+            //System.out.println("Empty");
+            return -1;
         }
-        System.out.println("top->\t"+arr[top]);
+        return arr[top];
 
     }
 
