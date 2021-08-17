@@ -1,5 +1,6 @@
 package com.datastructures.stack;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import java.util.Collections;
@@ -207,4 +208,81 @@ public class StackProblems {
         Collections.reverse(a);
         return a;
     }
+
+    public long getMaxArea(long hist[], long n)
+    {
+        // your code here
+        ArrayList<Long> a1 = nearestSmallestToTheLeftIndex(hist,n);
+        ArrayList<Long> a2 = nearestSmallestToTheRightIndex(hist,n);
+
+        long max=Long.MIN_VALUE;
+
+        for (int i = 0; i<n; i++)
+        {
+
+            long v=Math.abs(a2.get(i)-a1.get(i)-1);
+            max=Math.max(max,v*hist[i]);
+        }
+        return max;
+    }
+
+    public  ArrayList<Long> nearestSmallestToTheLeftIndex(long[] ar,long n) {
+        ArrayList<Long> a = new ArrayList<Long>();
+        Stack st=new Stack();
+
+        for (int i = 0; i < n; i++)
+        {
+            if(st.isEmpty())
+                a.add((long)-1);
+            else if(ar[st.peek()]<ar[i])
+            {
+                a.add((long)st.peek());
+            }
+            else if(ar[st.peek()]>=ar[i])
+            {
+                while(!st.isEmpty() && ar[st.peek()]>=ar[i])
+                {
+                    st.pop();
+                }
+                if(st.isEmpty())
+                    a.add((long)-1);
+                else
+                    a.add((long)st.peek());
+            }
+            st.push(i);
+        }
+        return a;
+    }
+
+    public  ArrayList<Long> nearestSmallestToTheRightIndex(long[] ar,long n)
+    {
+        ArrayList<Long> a = new ArrayList<Long>();
+        Stack st=new Stack();
+
+        for (int i =(int) n-1; i >=0 ; i--)
+        {
+            if(st.isEmpty())
+                a.add((long)n);
+            else if(ar[st.peek()]<ar[i])
+            {
+                a.add((long)st.peek());
+            }
+            else if(ar[st.peek()]>=ar[i])
+            {
+                while(!st.isEmpty() && ar[st.peek()]>=ar[i])
+                {
+                    st.pop();
+                }
+                if(st.isEmpty())
+                    a.add((long)n);
+                else
+                    a.add((long)st.peek());
+            }
+            st.push(i);
+        }
+
+        Collections.reverse(a);
+        return a;
+    }
+
 }

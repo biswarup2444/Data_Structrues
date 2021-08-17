@@ -7,10 +7,16 @@ import com.datastructures.linkedlist.singly.Node;
 import com.datastructures.linkedlist.singly.SinglyLinkedList;
 import com.datastructures.stack.StackProblems;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
+        long ar[] = new long[]{};
+        System.out.println(ar.length);
+        StackProblems st = new StackProblems();
 
+        System.out.println(st.getMaxArea(ar,ar.length));
 
 
     }
