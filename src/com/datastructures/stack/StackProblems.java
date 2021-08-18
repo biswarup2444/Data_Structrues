@@ -208,9 +208,7 @@ public class StackProblems {
         Collections.reverse(a);
         return a;
     }
-
-    public long getMaxArea(long hist[], long n)
-    {
+    public long getMaxArea(long[] hist, long n) {
         // your code here
         ArrayList<Long> a1 = nearestSmallestToTheLeftIndex(hist,n);
         ArrayList<Long> a2 = nearestSmallestToTheRightIndex(hist,n);
@@ -225,7 +223,6 @@ public class StackProblems {
         }
         return max;
     }
-
     public  ArrayList<Long> nearestSmallestToTheLeftIndex(long[] ar,long n) {
         ArrayList<Long> a = new ArrayList<Long>();
         Stack st=new Stack();
@@ -253,9 +250,7 @@ public class StackProblems {
         }
         return a;
     }
-
-    public  ArrayList<Long> nearestSmallestToTheRightIndex(long[] ar,long n)
-    {
+    public  ArrayList<Long> nearestSmallestToTheRightIndex(long[] ar,long n) {
         ArrayList<Long> a = new ArrayList<Long>();
         Stack st=new Stack();
 
@@ -283,6 +278,61 @@ public class StackProblems {
 
         Collections.reverse(a);
         return a;
+    }
+    public int maxArea(int M[][], int n, int m) {
+        // add code here.
+        ArrayList<Integer> ar=new ArrayList<Integer>();
+        for(int i=0;i<m;i++)
+        {
+            ar.add(M[0][i]);
+        }
+        int ma=maxHist(ar,ar.size());
+
+        for(int i=1;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(M[i][j]==0)
+                    ar.set(j,0);
+                else
+                    ar.set(j,ar.get(j)+1);
+            }
+
+            ma=Math.max(ma,maxHist(ar,ar.size()));
+
+        }
+        return ma;
+    }
+    public int maxHist(ArrayList<Integer> ar,int n) {
+        int i=0;
+        Stack st=new Stack();
+        int area=0;
+        int max=Integer.MIN_VALUE;
+
+        while(i<n)
+        {
+            if(st.isEmpty()|| ar.get(st.peek()) < ar.get(i))
+                st.push(i++);
+            else
+            {
+                int top=st.pop();
+                if(st.isEmpty())
+                    area=ar.get(top)*i;
+                else
+                    area=ar.get(top)*(i-1-st.peek());
+                max=Math.max(max,area);
+            }
+        }
+        while(!st.isEmpty())
+        {
+            int top=st.pop();
+            if(st.isEmpty())
+                area=ar.get(top)*i;
+            else
+                area=ar.get(top)*(i-1-st.peek());
+            max=Math.max(max,area);
+        }
+        return max;
     }
 
 }
