@@ -39,7 +39,7 @@ public class Queue {
 
     public boolean isEmpty()
     {
-        return start == -1 && end == -1;
+        return start == end;
     }
 
     public  boolean isFull()

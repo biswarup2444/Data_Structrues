@@ -5,18 +5,25 @@ import com.datastructures.linkedlist.problems.LinkedListProblem1;
 import com.datastructures.linkedlist.problems.NodeOfPoly;
 import com.datastructures.linkedlist.singly.Node;
 import com.datastructures.linkedlist.singly.SinglyLinkedList;
-import com.datastructures.stack.StackProblems;
+import com.datastructures.queue.Queue;
+import com.datastructures.stack.StackProblems2;
+import com.datastructures.queue.QueueProblems;
 
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        long ar[] = new long[]{};
-        System.out.println(ar.length);
-        StackProblems st = new StackProblems();
+        Queue st=new Queue();
+        QueueProblems qp=new QueueProblems();
+        st.enqueue(1);
+        st.enqueue(2);
+        st.enqueue(3);
+        st.enqueue(4);
+        qp.reverseQueue(st);
+        st.peek();
 
-        System.out.println(st.getMaxArea(ar,ar.length));
+
 
 
     }

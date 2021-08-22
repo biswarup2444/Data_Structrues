@@ -3,6 +3,7 @@ package com.datastructures.stack;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+
 import java.util.Collections;
 
 public class StackProblems {
@@ -334,5 +335,29 @@ public class StackProblems {
         }
         return max;
     }
+    public int rainWaterTapping(int[] ar) {
+        int[] maxl=new int[ar.length];
+        int[] maxr=new int[ar.length];
+        int max=ar[0];
+        for(int i=0;i<ar.length;i++)
+        {
+            maxl[i]=Math.max(max,ar[i]);
+            max=maxl[i];
+        }
+        max=ar[ar.length-1];
+        for(int i=ar.length-1;i>=0;i--)
+        {
+            maxr[i]=Math.max(max,ar[i]);
+            max=maxr[i];
+        }
+        int c=0;
+        for(int i=0;i<ar.length;i++)
+        {
+            c+=Math.min(maxl[i],maxr[i])-ar[i];
+        }
+        System.out.println(c);
+        return c;
+    }
+
 
 }
