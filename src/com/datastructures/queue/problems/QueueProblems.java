@@ -1,5 +1,7 @@
-package com.datastructures.queue;
+package com.datastructures.queue.problems;
 
+
+import com.datastructures.queue.Queue;
 
 public class QueueProblems {
 
@@ -12,4 +14,7 @@ public class QueueProblems {
         q.enqueue(val);
         return q;
     }
+
+
+
 }
